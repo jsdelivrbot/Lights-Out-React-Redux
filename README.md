@@ -1,42 +1,46 @@
-# Lights Out
+# Lights Out!
+###### redux practice
 
-### Basic Structure
+![plan](./planning/plan.JPG)
 
-##### Components
+The components / containers:
 * App
-  * most parent Component
-* buttons.js
-  * restart / randomize
-* info.js
-  * click count & highest score (lowest clicks)
-* game_board.js
-  * holds all the lights
-* light.js
+  * Buttons
+    * randomize
+    * reset
+  * clicks
+  * GameBoard
+    * Light []
+
+##### App
+* Holds all components
+* displays information about GameBoard
+
+##### GameBoard
+* displays lights
+* holds lights []
+* action: TOGGLE_LIGHT
+
+##### Buttons
+* randomize
+  * action: RANDOM_RESET
 
 
-> Should GameBoard have a state?<br>
-> Does Light component need a state?<br>
+## reducers
 
-* Light is clicked
-  * click count needs appended
-  * Light id needs to be known by GameBoard
+###### ToggleReducer
+  * toggles current index light
+  * toggle non-diagnal adjacent and index lights
+    * index
+    * index + 1
+    * index - 1
+<!-- &#8730; square root of lights.length -->
+    * index + &#8730;lights
+    * index - &#8730;lights
 
-* GameBoard state
-  * list of lights
-    * id
-    * on/off
-  * render lights as on/off
-* App
-  * click count
-
-<hr>
-I will go for # of clicks first
+###### RandomLightsReducer
+  * reset and randomize entire list of lights
 
 
 
-
-
-
-
-
-![planning](./journal/events.png)
+[planning](./events.png)

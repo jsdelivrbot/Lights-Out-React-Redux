@@ -10,7 +10,7 @@ class GameBoard extends Component {
     }
 
   }
-
+  // TODO: Perhaps this should be a randomize reducer...
   componentWillMount() {
     const lights = []
     for(var i = 0; i < 9; i++) {
