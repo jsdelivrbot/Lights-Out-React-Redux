@@ -23,7 +23,8 @@ The components / containers:
 
 ##### Buttons
 * randomize
-  * action: RANDOM_RESET
+  * action: RANDOM_LIGHTS
+  * change percentage of
 
 
 ## reducers
@@ -34,9 +35,8 @@ The components / containers:
     * index
     * index + 1
     * index - 1
-<!-- &#8730; square root of lights.length -->
-    * index + &#8730;lights
-    * index - &#8730;lights
+    * index + sqrt(lights.length)
+    * index - sqrt(lights.length)
 
 ###### RandomLightsReducer
   * reset and randomize entire list of lights

@@ -17,13 +17,17 @@ export default function(state = [], action) {
 
 function toggleAdjacents(state, id) {
   const lights = [];
-  const sqrtOfTotalLights = Math.sqrt(state.length);
+  const cols = Math.sqrt(state.length);
+  function sameRow(index1, index2) {
+    const a = Math.floor(index1 / cols);
+    const b = Math.floor(index2 / cols);
+    return a === b;
+  }
   state.map((light) => {
-    if( id === light.id ||
-        id === light.id + 1 ||
-        id === light.id - 1 ||
-        id === light.id + sqrtOfTotalLights ||
-        id === light.id - sqrtOfTotalLights
+    if(  id === light.id ||
+        (id === light.id + 1 && sameRow(light.id, light.id + 1)) ||
+        (id === light.id - 1 && sameRow(light.id, light.id - 1)) ||
+         id === light.id + cols || id === light.id - cols
       ) {
         light.active = light.active ? false : true;
       }
@@ -39,5 +43,4 @@ function randomizeLightList(totalLights) {
     lights.push({id: i, active: randActive});
   }
   return lights;
-
 }
