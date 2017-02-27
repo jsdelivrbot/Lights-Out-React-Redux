@@ -9,13 +9,15 @@ export default function(state = [], action) {
       ];
     case TOGGLE_LIGHTS:
       return [
-        ...toggleAdjacents(state, action.id)
+        ...toggleAdjacents(state, action.id.id)
       ]
   }
   return state;
 }
 
 function toggleAdjacents(state, id) {
+  // console.log(state);
+  console.log(id);
   const lights = [];
   const sqrtOfTotalLights = Math.sqrt(state.length);
   state.map((light) => {
@@ -38,7 +40,6 @@ function randomizeLightList(totalLights) {
     const randActive = Math.random() > 0.5;
     lights.push({id: i, active: randActive});
   }
-  console.log(lights);
   return lights;
 
 }

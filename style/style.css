@@ -1,0 +1,9 @@
+.light {
+  margin: 2px;
+  width: 150px;
+  height: 150px;
+  background-color: #333;
+}
+.light-active {
+  background-color: #DD0;
+}

@@ -16,9 +16,8 @@ class GameBoard extends Component {
         <div
           onClick={() => this.props.toggleLights(light)}
           key={light.id}
-          className="light">
-            {light.active ? "on" : " off"}
-        </div> );
+          className={`light ${light.active ? 'light-active' : ''}`}
+        ></div> );
     });
   }
 
