@@ -5,26 +5,13 @@ import {randomizeLights} from '../actions/index';
 
 class GameBoard extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      lights: []
-    }
-
-  }
-  // TODO: Perhaps this should be a randomize reducer...
-  componentWillMount() {
-    this.props.randomizeLights()
-    const lights = []
-    for(var i = 0; i < 9; i++) {
-      lights.push({id: i, active: Math.random() > 0.5});
-    }
-    this.setState({lights});
+  componentDidMount() {
+    this.props.randomizeLights();
   }
 
   renderLight() {
-    return this.state.lights.map((light) => {
+    console.log(this.props);
+    return this.props.lights.map((light) => {
       return (
         <div
           key={light.id}
@@ -43,4 +30,8 @@ class GameBoard extends Component {
   }
 }
 
-export default connect(null, {randomizeLights})(GameBoard);
+function mapStateToProps(state) {
+  return {lights: state.lightsListReduced}
+}
+
+export default connect(mapStateToProps, {randomizeLights})(GameBoard);

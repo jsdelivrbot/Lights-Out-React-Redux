@@ -1,5 +1,5 @@
 export const TOGGLE_LIGHT = 'TOGGLE_LIGHT';
-export const RANDOMIZE_LIGHTS = 'RANDOMIZE_LIGHTSS';
+export const RANDOMIZE_LIGHTS = 'RANDOMIZE_LIGHTS';
 
 export function toggleLight(id) {
   return {
