@@ -1,9 +1,9 @@
-export const TOGGLE_LIGHT = 'TOGGLE_LIGHT';
+export const TOGGLE_LIGHTS = 'TOGGLE_LIGHTS';
 export const RANDOMIZE_LIGHTS = 'RANDOMIZE_LIGHTS';
 
-export function toggleLight(id) {
+export function toggleLights(id) {
   return {
-    type: TOGGLE_LIGHT,
+    type: TOGGLE_LIGHTS,
     id: id
   }
 }

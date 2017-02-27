@@ -1,13 +1,35 @@
 import {RANDOMIZE_LIGHTS} from '../actions/index';
+import {TOGGLE_LIGHTS} from '../actions/index';
 
 export default function(state = [], action) {
   switch (action.type) {
     case RANDOMIZE_LIGHTS:
-      return [...state,
+      return [
         ...randomizeLightList(9)
+      ];
+    case TOGGLE_LIGHTS:
+      return [
+        ...toggleAdjacents(state, action.id)
       ]
   }
   return state;
+}
+
+function toggleAdjacents(state, id) {
+  const lights = [];
+  const sqrtOfTotalLights = Math.sqrt(state.length);
+  state.map((light) => {
+    if( id === light.id ||
+        id === light.id + 1 ||
+        id === light.id - 1 ||
+        id === light.id + sqrtOfTotalLights ||
+        id === light.id - sqrtOfTotalLights
+      ) {
+        light.active = light.active ? false : true;
+      }
+    lights.push(light);
+  });
+  return lights;
 }
 
 function randomizeLightList(totalLights) {

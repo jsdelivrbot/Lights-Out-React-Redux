@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {randomizeLights} from '../actions/index';
+import {toggleLights} from '../actions/index';
 
 class GameBoard extends Component {
 
@@ -10,10 +11,10 @@ class GameBoard extends Component {
   }
 
   renderLight() {
-    console.log(this.props);
     return this.props.lights.map((light) => {
       return (
         <div
+          onClick={() => this.props.toggleLights(light)}
           key={light.id}
           className="light">
             {light.active ? "on" : " off"}
@@ -34,4 +35,4 @@ function mapStateToProps(state) {
   return {lights: state.lightsListReduced}
 }
 
-export default connect(mapStateToProps, {randomizeLights})(GameBoard);
+export default connect(mapStateToProps, {randomizeLights, toggleLights})(GameBoard);
