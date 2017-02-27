@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-
+import RandomizeReducer from './reducer_randomize_lights';
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  lightsList: RandomizeReducer
 });
 
 export default rootReducer;

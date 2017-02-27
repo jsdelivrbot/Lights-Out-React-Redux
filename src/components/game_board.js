@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {randomizeLights} from '../actions/index';
 
 class GameBoard extends Component {
 
@@ -12,6 +15,7 @@ class GameBoard extends Component {
   }
   // TODO: Perhaps this should be a randomize reducer...
   componentWillMount() {
+    this.props.randomizeLights()
     const lights = []
     for(var i = 0; i < 9; i++) {
       lights.push({id: i, active: Math.random() > 0.5});
@@ -22,8 +26,10 @@ class GameBoard extends Component {
   renderLight() {
     return this.state.lights.map((light) => {
       return (
-        <div  key={light.id} className="light">
-          {light.active ? "on" : " off"}
+        <div
+          key={light.id}
+          className="light">
+            {light.active ? "on" : " off"}
         </div> );
     });
   }
@@ -37,5 +43,4 @@ class GameBoard extends Component {
   }
 }
 
-
-export default GameBoard;
+export default connect(null, {randomizeLights})(GameBoard);
