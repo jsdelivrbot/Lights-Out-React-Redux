@@ -31,7 +31,7 @@ class GameBoard extends Component {
 }
 
 function mapStateToProps(state) {
-  return {lights: state.lightsListReduced}
+  return {lights: state.lightsList}
 }
 
 export default connect(mapStateToProps, {randomizeLights, toggleLights})(GameBoard);

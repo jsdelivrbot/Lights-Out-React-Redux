@@ -3,7 +3,7 @@ import RandomizeReducer from './reducer_randomize_lights';
 import ToggleLightsReducer from './reducer_randomize_lights';
 
 const rootReducer = combineReducers({
-  lightsListReduced: RandomizeReducer
+  lightsList: RandomizeReducer
 });
 
 export default rootReducer;
