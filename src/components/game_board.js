@@ -7,7 +7,7 @@ import {toggleLights} from '../actions/index';
 class GameBoard extends Component {
 
   componentDidMount() {
-    this.props.randomizeLights();
+    this.props.randomizeLights(49, 25);
   }
 
   renderLight() {
@@ -31,7 +31,9 @@ class GameBoard extends Component {
 }
 
 function mapStateToProps(state) {
-  return {lights: state.lightsList}
+  return {
+    lights: state.lightsList
+  }
 }
 
 export default connect(mapStateToProps, {randomizeLights, toggleLights})(GameBoard);

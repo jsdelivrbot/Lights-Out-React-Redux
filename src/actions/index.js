@@ -8,8 +8,10 @@ export function toggleLights(id) {
   }
 }
 
-export function randomizeLights() {
+export function randomizeLights(totalLights, percentOn) {
   return {
-    type: RANDOMIZE_LIGHTS
+    type: RANDOMIZE_LIGHTS,
+    totalLights,
+    percentOn
   }
 }

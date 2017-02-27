@@ -5,7 +5,7 @@ export default function(state = [], action) {
   switch (action.type) {
     case RANDOMIZE_LIGHTS:
       return [
-        ...randomizeLightList(49)
+        ...randomizeLightList(action.totalLights, action.percentOn)
       ];
     case TOGGLE_LIGHTS:
       return [
@@ -36,10 +36,10 @@ function toggleAdjacents(state, id) {
   return lights;
 }
 
-function randomizeLightList(totalLights) {
+function randomizeLightList(totalLights, percentOn) {
   const lights = [];
   for(var i = 0; i < totalLights; i++) {
-    const randActive = Math.random() > 0.5;
+    const randActive = Math.random() < percentOn / 100;
     lights.push({id: i, active: randActive});
   }
   return lights;
