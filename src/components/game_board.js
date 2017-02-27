@@ -14,7 +14,7 @@ class GameBoard extends Component {
     return this.props.lights.map((light) => {
       return (
         <div
-          onClick={() => this.props.toggleLights(light)}
+          onClick={() => this.props.toggleLights(light.id)}
           key={light.id}
           className={`light ${light.active ? 'light-active' : ''}`}
         ></div> );

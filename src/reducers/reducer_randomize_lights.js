@@ -5,19 +5,17 @@ export default function(state = [], action) {
   switch (action.type) {
     case RANDOMIZE_LIGHTS:
       return [
-        ...randomizeLightList(9)
+        ...randomizeLightList(49)
       ];
     case TOGGLE_LIGHTS:
       return [
-        ...toggleAdjacents(state, action.id.id)
+        ...toggleAdjacents(state, action.id)
       ]
   }
   return state;
 }
 
 function toggleAdjacents(state, id) {
-  // console.log(state);
-  console.log(id);
   const lights = [];
   const sqrtOfTotalLights = Math.sqrt(state.length);
   state.map((light) => {
